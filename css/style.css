@@ -1,0 +1,265 @@
+/* preloader */
+@keyframes preloader {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }  
+  .preloader {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    transition: 2s all;
+    opacity: 1;
+    visibility: visible;
+    background: url(../images/Background.png) center center;
+    z-index: 5;
+  }
+  #loader {
+    background: transparent;
+    width: 50px;
+    height: 50px;
+    border-bottom: 3px solid #fff;
+    border-right: 1px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: preloader 2s infinite linear; 
+  }
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+/* common */
+
+body,
+.menu {
+    margin: 0;
+    background: url(../images/Background.png) center center;
+}
+body .main .none {
+    display: none;
+}
+
+/* main screen */
+
+.main {
+    background: url(../images/Background.png) center no-repeat;
+    max-width: 1440px;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    color: #fff;
+    font-family: Roboto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    height: 80%;
+}
+.title,
+.level {
+    font-size: 4em;
+    font-weight: bold;
+}
+.title {
+    margin-bottom: 0;
+}
+.level__item {
+    margin-bottom: 25px;
+    padding-left: 0.3em;
+    position: relative;
+}
+.level__item .level__label {
+    cursor: pointer;    
+    opacity: 1;
+}
+.level__checkbox {
+    opacity: 0;
+}
+.level__item .level__label:hover {
+    opacity: 0.7;
+}
+.level__item .level__label:hover::before,
+.level__checked::before  {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #D62B2E;
+    transform: rotate(45deg);
+    position: absolute;
+    top: calc(50% - 9px);
+    left: 0;
+}
+.subtitle {
+    font-size: 20px;
+    line-height: 22px;
+    margin-top: 0.5em;
+}
+.subtitle_normal {
+    font-weight: normal;
+}
+.menu__button {
+    font-family: Roboto;
+    color: #fff;
+    background-color: #d62b2e;
+    font-size: 32px;
+    line-height: 37px;
+    width: 352px;
+    height: 95px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color .5s;
+    outline: none;
+}
+.menu__button:hover {
+    background-color: #ec4144;
+}
+.menu__button:active {
+    border: 1px solid #fff;
+}
+.menu__card {
+    position: absolute;
+}
+.card-uneven {
+    right: 8%;
+    bottom: 7%;
+}
+.card-even {
+    right: 25%;
+    bottom: 10%;
+}
+
+/* the game */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    justify-items: center;
+    margin: 0 5em;
+}
+.cards_hard {
+    grid-template-columns: repeat(5, 1fr);    
+}
+.card {
+    width: 222px;
+    height: 345px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.card__wrap {
+    width: 100%;
+    height: 100%;
+    color: #f4f4f4;
+    position: relative;
+    bottom: 0;
+    transform-style: preserve-3d;
+    transition: all 0.6s;
+}
+.card__wrap_hover:hover {
+    transform: rotate(-7deg);
+    bottom: 15px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+.card__item_over,
+.card__item_front,
+.card__item_bug {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+.card__item_over {  
+    background: url(../images/game_over.png) center no-repeat;   
+    transform: rotateY(180deg);
+}
+.card__item_bug {
+    background: url(../images/bug.png) center no-repeat; 
+    transform: rotateY(180deg);
+}
+.card__item_front {
+    background: url(../images/card.png) center no-repeat;
+  }
+.card_click {
+      transform: rotateY(180deg);
+  } 
+
+/* адаптив для смартфонов */
+
+@media (max-width: 1025px)  {
+    .cards_hard {
+        grid-template-columns: repeat(3, 1fr);
+        height: 100vh;
+    }
+    
+}
+@media (max-width: 870px) {
+.card-uneven,
+.card-even {
+    display: none;
+}
+}
+@media (max-width: 470px){
+.title,
+.level {
+    font-size: 45px;
+    line-height: 48px;
+}
+.menu__button {
+    width: 100%;
+}
+.menu {
+    align-items: flex-start;
+}
+.cards_hard,
+.cards {
+    grid-template-columns: repeat(1, 1fr);
+    height: 100vh;
+}
+}
+/* адаптив для горизонтально ориентированого экрана смартфона */
+
+@media (max-height: 500px) {
+.main {
+    height: 100%;
+    width: 100%;
+}
+.title,
+.level {
+    font-size: 40px;
+    line-height: 43px;
+}
+.menu__button {
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+}
+.cards {
+    grid-gap: 1%;
+}
+}
+@media (max-height: 400px) {
+    .title,
+    .level {
+        margin: 0;
+    }
+}

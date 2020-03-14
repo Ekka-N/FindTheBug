@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Найдти баг</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font.css">
+</head>
+<body >
+    <div id='preloader' class='preloader'>
+        <div id='loader'>
+        </div>
+    </div>
+    <main class="main">
+        <!-- main menu -->
+        <div class="menu" id="menu">
+            <h1 class="title">Выберите уровень сложности:
+                <p class="subtitle"> 
+                    Выберите сложность и игра начнется.
+                    <span class='subtitle_normal'>Чем выше уровень - тем больше будет карт.</span>
+                </р>
+            </h1>            
+
+            <div class="level" id="level"> 
+                <div class="level__item level__checked">
+                    <label class="level__label"><input type='checkbox' class="level__checkbox" id="level-easy"><span>Простой</span></label>
+                </div>
+                <div class="level__item">
+                    <label class="level__label"><input type='checkbox' class="level__checkbox" id="level-normal"><span>Средний</span></label>
+                </div><div class="level__item">
+                    <label class="level__label"><input type='checkbox' class="level__checkbox" id="level-hard"><span>Сложный</span></label>
+                </div>
+            </div>
+
+            <button class="menu__button" id='button-start'>Начать игру</button>
+            <img src="./images/menu-card.png" alt="playing card" class="menu__card card-even">
+            <img src="./images/menu-card(uneven).png" alt="playing card" class="menu__card card-uneven">
+        </div>
+    
+
+        <!-- the game -->
+        <div class="cards none" id="game">
+
+        </div> 
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
