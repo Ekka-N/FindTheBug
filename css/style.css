@@ -246,15 +246,18 @@ body .main .none {
     font-size: 40px;
     line-height: 43px;
 }
+
+.cards {
+    grid-gap: 1%;
+}
+}
+@media (max-height: 500px) and (min-width: 500px) {
 .menu__button {
     width: 40%;
     height: 30%;
     position: absolute;
     right: 5%;
     top: 50%;
-}
-.cards {
-    grid-gap: 1%;
 }
 }
 @media (max-height: 400px) {
