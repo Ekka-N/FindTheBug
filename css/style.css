@@ -208,8 +208,14 @@ body .main .none {
         grid-template-columns: repeat(3, 1fr);
         height: 100vh;
     }
-    
 }
+
+@media (max-height: 800px)  {
+    .card-uneven,
+    .card-even  {
+        bottom: 0;
+    }
+} 
 @media (max-width: 870px) {
 .card-uneven,
 .card-even {
